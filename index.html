@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Stay Gold!</title>
+	<link href='http://fonts.googleapis.com/css?family=Norican|Montserrat' rel='stylesheet' type='text/css'>
+	<style>
+		body {
+			font-size: 30px;
+			text-align: center;
+			background-size: cover;
+		}
+
+		.background, .backgroundColor {
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-size: cover;
+			width: 100%;
+			height: 100%;
+			z-index: -25;
+			/*background: linear-gradient(	
+   			 );*/
+		}
+
+		.wrapper {
+			margin: 7% auto;
+			width: 80%;
+		}
+
+		h1 {
+			font-family: Norican;
+			font-size: 5rem;
+			color: #ffeb8d;
+		}
+
+		.quoteHolder {
+			height: 200px;
+		}
+
+		h2, a, p {
+			font-family: Montserrat;
+			font-size: 2rem;
+			line-height: 3rem;
+			color: white;
+			margin-bottom: 2%;
+		}
+
+		
+		a, p {
+			font-size: 1.5rem;
+			text-decoration: none;
+
+		}
+
+		a.getGold {
+			background: #982e65;
+			position: relative;
+			padding: 2%;
+		}
+
+		a.getGold:focus, a.getGold:active {
+			background: #982e65;
+			padding: 2%;
+			width: 95%;
+			font-size: 1.25rem;
+		}
+
+		.footer {
+			position: relative;
+			margin-top: 10%;
+		}
+
+		a.gab {
+			color: #ffeb8d;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="background"></div>
+	<div class="backgroundColor"></div>
+	<div class="wrapper"><h1>Thank You for Being a Friend</h1>
+		<div class="quote">
+			<div class="quoteHolder">
+				<h2>Click the button for the best of the Golden Girls</h2>
+			</div>	
+			<a class="getGold" href="#">Stay Gold</a>
+		</div> <!-- end quote -->
+		<div class="footer">
+			<p>Made by <a  class="gab" href="http://www.gabwhite.com">Gab White</a>.</p>
+			<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.gabwhite.com/staygold/index.html" data-text="Stay Gold: A Golden Girls Quote Generator that the world needs" data-via="gabwhite" data-hashtags="staygold">Tweet</a>
+			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+		</div> <!-- end footer -->
+	</div> <!-- end wrapper -->
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		
+		var gold = {}
+
+		gold.init = function(){
+
+		};
+
+		var quote1 = '"My mother always used to say: "The older you get, the better you get, unless you\'re a banana." - Rose';
+
+		var quote2=' "Why do blessings wear disguises? If I were a blessing, I\'d run around naked." - Sophia';
+
+		var quote3=' "You know what they say: you can lead a herring to water, but you have to walk really fast or he\'ll die". - Rose';
+
+		var quote4 = ' "You\'re a furry little gnome and we feed you too much." - Dorothy (to Sophia)';
+
+		var quote5 = ' "I swear with God as my witness, I will never pick up another man!... in a library... on a Saturday... unless he\'s cute... and drives a nice car... Amen" - Blanche';
+
+		var quote6 = ' "Look, you didn\'t ask me for my opinion, but I\'m old, so I\'m giving it anyway." - Sophia';
+
+		var quote7 = ' "Get back here, you deceitful little Sicilian gekko!" - Dorothy (to Sophia)';
+
+		var quote8 = ' "Rose: Like we say in St. Olaf, Christmas without fruitcake is like St. Sigmund\'s Day without the headless boy." - Rose';
+
+		var quote9 = ' "Rose: Lets face it, Blanche, you have Bette Davis eyes... and Freddy Kruger hands!" - Rose';
+
+		var quote10 = ' "Now if you\'ll excuse me I\'ll be in the living room being feeble. If I can find the living room." - Sophia';
+
+
+		var goldQuotes = [quote1, quote2, quote3, quote4, quote5, quote6, quote7, quote8, quote9, quote10];
+
+		var images = ['goldbackground_01.jpg', 'goldbackground_02.jpg', 'goldbackground_03.jpg', 'goldbackground_04.jpg', 'goldbackground_05.jpg', 'goldbackground_06.jpg', 'goldbackground_07.jpg', 'goldbackground_08.jpg', 'goldbackground_09.jpg', 'goldbackground_10.jpg',];
+      	
+      	 var backgroundColors = ['rgba(255,105,180,.6)', 'rgba(0,255,255,.6)', 'rgba(139,0,139,.6)', 'rgba(255,20,147,.6)', 'rgba(64,224,208,.6)', 'rgba(255,99,71,.6)', 'rgba(255,140,0,.6)', 'rgba(75,0,130, .6)'];
+
+		var randomNumber = function(number){
+        	return Math.floor(Math.random() * number + 1);
+      	};
+
+      	var randomGold = function(goldQuotes){
+      	  var i = randomNumber(goldQuotes.length);
+      	  var quote = goldQuotes[i -1];
+      	  return quote;
+      	};	
+
+
+      	
+
+
+      	$(function() {
+      	  $(window).load(function(){
+      	  	$(".backgroundColor").css({"background": backgroundColors[Math.floor(Math.random() * backgroundColors.length)] });
+      	  	$(".background").css({"background-image": "url(images/" + images[Math.floor(Math.random() * images.length)] + ')'});
+      	  });
+      	  
+      	  $('a.getGold').on('click',function() {
+
+      	    var quote = randomGold(goldQuotes);
+	      	$('h2').fadeOut(function(){
+	      		$('h2').html(quote);
+	      	});
+	      	$('h2').fadeIn(1500);
+	      	
+	      	
+	      	// Set the BG colour
+	      	var randomColour = function(backgroundColors){
+      		var i = randomNumber(backgroundColors.length);
+      		var newColour = backgroundColors[i - 1]
+      		return newColour;
+      		};
+
+      	  	// $(".backgroundColor").fadeOut();
+      	  	$(".backgroundColor").fadeIn(1500);
+
+      	  	$(".backgroundColor").css({"background": randomColour(backgroundColors) });
+
+
+      	  	// set the background image
+  	  		var bgimage = "url(images/" + images[Math.floor(Math.random() * images.length)] + ')';
+      	  	$('body').css('background-image',bgimage);
+
+      	  	$(".background").fadeOut(function(){
+      	  		$(".background").css({"background-image": bgimage
+      	  	});	
+	      	  	$(".background").fadeIn(1500);
+      	  	
+      	  	});//call back func
+      	  });//end click evenr
+
+      	});//end doc ready
+	</script>
+</body>
+</html>
