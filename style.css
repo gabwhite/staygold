@@ -55,7 +55,7 @@ body {
 		a.getGold:focus, a.getGold:active {
 			background: #982e65;
 			padding: 2%;
-			width: 95%;
+			width: 90%;
 			font-size: 1.25rem;
 		}
 
